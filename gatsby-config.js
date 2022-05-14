@@ -35,7 +35,7 @@ module.exports = {
             resolve: 'gatsby-source-filesystem',
             options: {
                 name: 'images',
-                path: './src/images/',
+                path: `${__dirname}/src/images/`,
             },
             __key: 'images',
         },
@@ -43,7 +43,7 @@ module.exports = {
             resolve: 'gatsby-source-filesystem',
             options: {
                 name: 'pages',
-                path: './src/pages/',
+                path: `${__dirname}/src/pages/`,
             },
             __key: 'pages',
         },
@@ -62,9 +62,19 @@ module.exports = {
                 path: `${__dirname}/src/posts`,
             },
         },
+        // used for linking to images using markdown
+        'gatsby-remark-images',
         {
             resolve: 'gatsby-plugin-mdx',
             options: {
+                gatsbyRemarkPlugins: [
+                    {
+                        resolve: 'gatsby-remark-images',
+                        options: {
+                            maxWidth: 1200,
+                        },
+                    },
+                ],
                 defaultLayouts: {
                     posts: require.resolve('./src/components/post-layout.js'),
                 },
