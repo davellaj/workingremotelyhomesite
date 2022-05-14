@@ -29,7 +29,6 @@ module.exports = {
                 icon: 'src/images/icon.png',
             },
         },
-        'gatsby-plugin-mdx',
         'gatsby-plugin-sharp',
         'gatsby-transformer-sharp',
         {
@@ -47,6 +46,29 @@ module.exports = {
                 path: './src/pages/',
             },
             __key: 'pages',
+        },
+        // added from frontent masters course
+        {
+            resolve: 'gatsby-source-filesystem',
+            options: {
+                name: 'posts',
+                path: `${__dirname}/src/posts/`,
+            },
+            __key: 'posts',
+        },
+        {
+            resolve: 'gatsby-plugin-page-creator',
+            options: {
+                path: `${__dirname}/src/posts`,
+            },
+        },
+        {
+            resolve: 'gatsby-plugin-mdx',
+            options: {
+                defaultLayouts: {
+                    posts: require.resolve('./src/components/post-layout.js'),
+                },
+            },
         },
     ],
 };
