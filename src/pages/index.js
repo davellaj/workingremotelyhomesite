@@ -67,12 +67,14 @@ const IndexPage = () => {
             <h2>Sanity Posts</h2>
             <div>
                 {sanityPosts.map((post) => (
-                    <div key={post.title}>
+                    <div key={post.id}>
                         <Link to={post.gatsbyPath}>
-                            <GatsbyImage
-                                image={post.mainImage.asset.gatsbyImageData}
-                                alt={post.description}
-                            />
+                            {post?.mainImage?.asset?.gatsbyImageData && (
+                                <GatsbyImage
+                                    image={post.mainImage.asset.gatsbyImageData}
+                                    alt={post.description}
+                                />
+                            )}
                             <h3>{post.title}</h3>
                             <p>{post.author.name}</p>
                             <small>posted: {post.publishedAt}</small>
