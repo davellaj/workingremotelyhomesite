@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, useStaticQuery, graphql } from 'gatsby';
 import Seo from './seo';
 import '../styles/global.css';
-import { header, content } from '../styles/layout.module.css';
+import { header, content, footer } from '../styles/layout.module.css';
 
 const Layout = ({
     children,
@@ -37,6 +37,10 @@ const Layout = ({
                 </nav>
             </header>
             <main className={content}>{children}</main>
+            <footer className={footer}>
+                <Link to="/terms-and-conditions">Terms and Conditions</Link>
+                <Link to="/privacy-policy">Privacy Policy</Link>
+            </footer>
         </>
     );
 };

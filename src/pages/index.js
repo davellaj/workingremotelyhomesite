@@ -1,33 +1,33 @@
 import React from 'react';
-import { Link, useStaticQuery, graphql } from 'gatsby';
+import { useStaticQuery, graphql } from 'gatsby';
 import Layout from '../components/layout';
-import { imageWrapper } from '../styles/index.module.css';
-import { GatsbyImage, StaticImage } from 'gatsby-plugin-image';
+import styled from '@emotion/styled';
+import Card from '../components/Card';
+
+const MostRecentPostWrapper = styled.div`
+    border: 1px solid orange;
+    width: 100%;
+`;
+
+const CardLayoutWrapper = styled.div`
+    display: flex;
+    flex-flow: wrap;
+    justify-content: space-between;
+`;
+
 const IndexPage = () => {
     const data = useStaticQuery(graphql`
         query GetBlogPosts {
-            allMdx(sort: { fields: frontmatter___date, order: DESC }) {
-                nodes {
-                    id
-                    slug
-                    frontmatter {
-                        title
-                        date
-                    }
-                }
-            }
-            allSanityPost {
+            allSanityPost(sort: { fields: publishedAt, order: DESC }) {
                 nodes {
                     title
-                    slug {
-                        current
-                    }
+                    id
                     mainImage {
                         asset {
                             gatsbyImageData
                         }
                     }
-                    publishedAt(fromNow: true)
+                    publishedAt(formatString: "DD MMMM, YYYY")
                     gatsbyPath(filePath: "/{SanityPost.slug__current}")
                     author {
                         name
@@ -38,50 +38,26 @@ const IndexPage = () => {
         }
     `);
 
-    const posts = data.allMdx.nodes;
     const sanityPosts = data.allSanityPost.nodes;
 
     return (
         <Layout>
-            <div className={imageWrapper}>
-                <StaticImage
-                    src="../images/icon.png"
-                    alt="a gatsby logo"
-                    placeholder="dominantColor"
-                    width={300}
-                    height={300}
-                />
-            </div>
-            <h1>Hi from frontend masters</h1>
-            <Link to="/about">Go to About Page</Link>
-            <ul>
-                {posts.map((post) => {
+            <h1>Working Remotely Blog</h1>
+            <CardLayoutWrapper>
+                {sanityPosts.map((post, i) => {
                     return (
-                        <li key={post.id}>
-                            <Link to={post.slug}>{post.frontmatter.title}</Link>
-                            <small>posted {post.frontmatter.date}</small>
-                        </li>
+                        <Card
+                            title={post.title}
+                            id={post.id}
+                            key={post.id}
+                            gatsbyPath={post.gatsbyPath}
+                            author={post.author.name}
+                            description={post.description}
+                            imagePath={post.mainImage.asset.gatsbyImageData}
+                        />
                     );
                 })}
-            </ul>
-            <h2>Sanity Posts</h2>
-            <div>
-                {sanityPosts.map((post) => (
-                    <div key={post.id}>
-                        <Link to={post.gatsbyPath}>
-                            {post?.mainImage?.asset?.gatsbyImageData && (
-                                <GatsbyImage
-                                    image={post.mainImage.asset.gatsbyImageData}
-                                    alt={post.description}
-                                />
-                            )}
-                            <h3>{post.title}</h3>
-                            <p>{post.author.name}</p>
-                            <small>posted: {post.publishedAt}</small>
-                        </Link>
-                    </div>
-                ))}
-            </div>
+            </CardLayoutWrapper>
         </Layout>
     );
 };
