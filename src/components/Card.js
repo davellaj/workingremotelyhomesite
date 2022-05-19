@@ -5,15 +5,15 @@ import { GatsbyImage } from 'gatsby-plugin-image';
 
 const ArticleWrapper = styled.article`
     display: flex;
-    width: 100%;
+    flex-basis: 100%;
     margin-bottom: 2rem;
 
     @media (min-width: 600px) {
-        width: 45%;
+        flex-basis: 45%;
     }
 
     @media (min-width: 1000px) {
-        width: 30%;
+        flex-basis: 30%;
     }
 `;
 
@@ -22,8 +22,6 @@ const CardWrapper = styled(Link)`
     color: var(--black);
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    min-width: 100%;
     text-decoration: none;
 
     a:focus,
@@ -34,24 +32,51 @@ const CardWrapper = styled(Link)`
 
 const ImageWrapper = styled.div`
     width: 100%;
-    height: 200px;
     background-color: blue;
 `;
 
-const Card = ({ title, author, gatsbyPath, id, description, imagePath }) => {
+const CardFigure = styled.figure`
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-flow: column nowrap;
+    max-height: 400px;
+    overflow: hidden;
+    border-radius: 5px;
+    // position: relative;
+
+    & img {
+        width: 100%;
+        margin-bottom: -4px;
+        object-fit: cover;
+        // object-position: 0 -150px;
+        // border: 1px solid blue;
+    }
+`;
+
+const CardFigCaption = styled.figureCaption`
+    padding: 1rem;
+    // position: absolute;
+    bottom: 0;
+    width: 100%;
+`;
+
+const Card = ({ title, author, gatsbyPath, key, description, imagePath }) => {
     return (
-        <ArticleWrapper key={id}>
+        <ArticleWrapper key={key}>
             <CardWrapper to={gatsbyPath}>
-                {imagePath && (
-                    <ImageWrapper>
-                        <GatsbyImage image={imagePath} alt={description} />
-                    </ImageWrapper>
-                )}
-                <div>
-                    {/* need to truncate title to make sure all cards same size */}
-                    <h2>{title}</h2>
-                    <small>written by: {author}</small>
-                </div>
+                <CardFigure>
+                    {imagePath && (
+                        <ImageWrapper>
+                            <GatsbyImage image={imagePath} alt={description} />
+                        </ImageWrapper>
+                    )}
+                    <CardFigCaption>
+                        {/* need to truncate title to make sure all cards same size */}
+                        <h2>{title}</h2>
+                        <p>written by: {author}</p>
+                    </CardFigCaption>
+                </CardFigure>
             </CardWrapper>
         </ArticleWrapper>
     );

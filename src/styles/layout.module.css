@@ -1,16 +1,14 @@
-.header {
+.header-wrapper {
     background: var(--black);
     color: var(--white);
-    display: flex;
-    justify-content: space-between;
     padding: 1rem;
 }
 
-.header a {
-    color: inherit;
-    display: inline-block;
-    padding: 0.5rem;
-    text-decoration: none;
+.header {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .header a:focus,
@@ -19,8 +17,27 @@
     color: var(--black);
 }
 
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav li:first-child {
+    /* as more items are flex aligned to the other end this will keep the logo to the right */
+    margin-right: auto;
+}
+
+nav a {
+    display: block;
+    color: inherit;
+    padding: 0.5rem;
+    text-decoration: none;
+}
+
 .content {
     margin: 1rem;
+    height: 100vh;
 }
 
 @media (min-width: 600px) {
@@ -36,11 +53,10 @@
 }
 
 .footer {
-    background: var(--black);
-    color: var(--white);
     display: flex;
     flex-direction: column;
-    padding: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .footer a {
@@ -54,4 +70,10 @@
 .footer a:hover {
     background: var(--white);
     color: var(--black);
+}
+
+.footerWrapper {
+    background: var(--black);
+    color: var(--white);
+    padding: 3rem;
 }

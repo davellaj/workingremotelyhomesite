@@ -4,8 +4,14 @@
     --white: #fff;
 }
 
-* {
+html {
     box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
 }
 
 html,
@@ -19,6 +25,8 @@ body {
 
 body {
     margin: 0;
+    padding: 0;
+    border: 0;
 }
 
 h1,

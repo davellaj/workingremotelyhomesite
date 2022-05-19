@@ -11,8 +11,14 @@ const MostRecentPostWrapper = styled.div`
 
 const CardLayoutWrapper = styled.div`
     display: flex;
-    flex-flow: wrap;
-    justify-content: space-between;
+    flex-flow: row wrap;
+    gap: 4%;
+    // justify-content: space-between; 100-8=92/3 =
+`;
+
+const PageWrapper = styled.section`
+    max-width: 1200px;
+    margin: 0 auto;
 `;
 
 const IndexPage = () => {
@@ -42,22 +48,24 @@ const IndexPage = () => {
 
     return (
         <Layout>
-            <h1>Working Remotely Blog</h1>
-            <CardLayoutWrapper>
-                {sanityPosts.map((post, i) => {
-                    return (
-                        <Card
-                            title={post.title}
-                            id={post.id}
-                            key={post.id}
-                            gatsbyPath={post.gatsbyPath}
-                            author={post.author.name}
-                            description={post.description}
-                            imagePath={post.mainImage.asset.gatsbyImageData}
-                        />
-                    );
-                })}
-            </CardLayoutWrapper>
+            <PageWrapper>
+                <h1>Working Remotely Blog</h1>
+                <CardLayoutWrapper>
+                    {sanityPosts.map((post, i) => {
+                        return (
+                            <Card
+                                title={post.title}
+                                id={post.id}
+                                key={post.id}
+                                gatsbyPath={post.gatsbyPath}
+                                author={post.author.name}
+                                description={post.description}
+                                imagePath={post.mainImage.asset.gatsbyImageData}
+                            />
+                        );
+                    })}
+                </CardLayoutWrapper>
+            </PageWrapper>
         </Layout>
     );
 };

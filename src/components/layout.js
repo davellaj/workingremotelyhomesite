@@ -2,7 +2,13 @@ import React from 'react';
 import { Link, useStaticQuery, graphql } from 'gatsby';
 import Seo from './seo';
 import '../styles/global.css';
-import { header, content, footer } from '../styles/layout.module.css';
+import {
+    header,
+    content,
+    footer,
+    footerWrapper,
+    headerWrapper,
+} from '../styles/layout.module.css';
 
 const Layout = ({
     children,
@@ -30,17 +36,28 @@ const Layout = ({
                 image={image}
                 path={path}
             />
-            <header className={header}>
-                <Link to="/">{meta.title}</Link>
-                <nav>
-                    <Link to="/about">About</Link>
-                </nav>
-            </header>
+            <div className={headerWrapper}>
+                <header className={header}>
+                    <nav>
+                        <ul>
+                            <li>
+                                <Link to="/">{meta.title}</Link>
+                            </li>
+                        </ul>
+                    </nav>
+                </header>
+            </div>
             <main className={content}>{children}</main>
-            <footer className={footer}>
-                <Link to="/terms-and-conditions">Terms and Conditions</Link>
-                <Link to="/privacy-policy">Privacy Policy</Link>
-            </footer>
+            <div className={footerWrapper}>
+                <footer className={footer}>
+                    <Link to="/terms-and-conditions">Terms and Conditions</Link>
+                    <Link to="/privacy-policy">Privacy Policy</Link>
+                    <br />
+                    <small>
+                        © 2022 Working Remotely Home. All Rights Reserved.
+                    </small>
+                </footer>
+            </div>
         </>
     );
 };
