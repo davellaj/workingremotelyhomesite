@@ -23,7 +23,7 @@ nav ul {
     padding: 0;
 }
 
-nav li:first-child {
+nav li:first-of-type {
     /* as more items are flex aligned to the other end this will keep the logo to the right */
     margin-right: auto;
 }

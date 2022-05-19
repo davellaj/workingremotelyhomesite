@@ -5,7 +5,7 @@ import styled from '@emotion/styled';
 import Card from '../components/Card';
 
 const CardLayoutWrapper = styled.div`
-    & div:first-child {
+    & div:first-of-type {
         flex-basis: 100%;
     }
 

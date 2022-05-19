@@ -44,6 +44,7 @@ const serializer = {
                 <GatsbyImage
                     image={urlFor(props.node.asset).url()}
                     alt={props.node.alt}
+                    placeholder="dominantColor"
                 />
                 <figcaption>{props.node._rawAttribution}</figcaption>
             </figure>
@@ -83,6 +84,7 @@ export default function SanityPost({ data }) {
                     <GatsbyImage
                         image={post.mainImage.asset.gatsbyImageData}
                         alt={post.mainImage.alternativeText}
+                        placeholder="dominantColor"
                     />
                 </ImageWrapper>
                 <PortableText blocks={post.mainImage._rawAttribution} />

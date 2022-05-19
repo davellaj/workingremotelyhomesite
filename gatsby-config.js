@@ -1,6 +1,6 @@
 module.exports = {
     siteMetadata: {
-        title: `Working Remotely`,
+        title: `Working Remotely Home`,
         siteUrl: `https://workingremotelyhome.com`,
         description: `Blog about working remotely`,
         image: `./src/images/icon.png`,

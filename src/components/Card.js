@@ -39,7 +39,7 @@ const CardFigure = styled.figure`
     flex-direction: column;
 `;
 
-const CardFigCaption = styled.figurecaption`
+const CardFigCaption = styled.figcaption`
     display: flex;
     align-items: center;
     padding: 1rem;
@@ -57,13 +57,17 @@ const StyledLink = styled(Link)`
     }
 `;
 
-const Card = ({ title, gatsbyPath, key, description, imagePath }) => {
+const Card = ({ title, gatsbyPath, description, imagePath }) => {
     return (
         <CardWrapper>
             <CardFigure>
                 {imagePath && (
                     <ImageWrapper>
-                        <GatsbyImage image={imagePath} alt={description} />
+                        <GatsbyImage
+                            image={imagePath}
+                            alt={description}
+                            placeholder="dominantColor"
+                        />
                     </ImageWrapper>
                 )}
                 <StyledLink to={gatsbyPath}>

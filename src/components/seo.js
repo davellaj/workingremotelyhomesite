@@ -24,7 +24,11 @@ const Seo = (props) => {
     const url = new URL(props.path || '/', defaults.siteUrl);
 
     return (
-        <Helmet>
+        <Helmet
+            htmlAttributes={{
+                lang: 'en',
+            }}
+        >
             <title>{title}</title>
             <meta name="description" content={description} />
             <link rel="canonical" href={url} />
