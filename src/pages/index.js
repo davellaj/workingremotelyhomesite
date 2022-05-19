@@ -4,16 +4,16 @@ import Layout from '../components/layout';
 import styled from '@emotion/styled';
 import Card from '../components/Card';
 
-const MostRecentPostWrapper = styled.div`
-    border: 1px solid orange;
-    width: 100%;
-`;
-
 const CardLayoutWrapper = styled.div`
-    display: flex;
-    flex-flow: row wrap;
-    gap: 4%;
-    // justify-content: space-between; 100-8=92/3 =
+    & div:first-child {
+        flex-basis: 100%;
+    }
+
+    @media (min-width: 650px) {
+        display: flex;
+        flex-flow: wrap;
+        gap: 2%;
+    }
 `;
 
 const PageWrapper = styled.section`
@@ -35,9 +35,6 @@ const IndexPage = () => {
                     }
                     publishedAt(formatString: "DD MMMM, YYYY")
                     gatsbyPath(filePath: "/{SanityPost.slug__current}")
-                    author {
-                        name
-                    }
                     description
                 }
             }
@@ -58,7 +55,6 @@ const IndexPage = () => {
                                 id={post.id}
                                 key={post.id}
                                 gatsbyPath={post.gatsbyPath}
-                                author={post.author.name}
                                 description={post.description}
                                 imagePath={post.mainImage.asset.gatsbyImageData}
                             />
