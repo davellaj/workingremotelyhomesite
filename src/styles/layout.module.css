@@ -36,8 +36,8 @@ nav a {
 }
 
 .content {
-    margin: 1rem;
     min-height: 100vh;
+    margin: 1rem;
 }
 
 @media (min-width: 600px) {

@@ -4,6 +4,35 @@ import { GatsbyImage } from 'gatsby-plugin-image';
 import Layout from '../components/layout';
 import PortableText from '@sanity/block-content-to-react';
 import urlBuilder from '@sanity/image-url';
+import styled from '@emotion/styled';
+
+const ContentWrapper = styled.article`
+    max-width: 1200px;
+    margin: 0 auto;
+
+    & a {
+        text-decoration: none;
+    }
+`;
+
+const Title = styled.h1`
+    @media (min-width: 650px) {
+        font-size: 3rem;
+    }
+`;
+
+const ImageWrapper = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @media (min-width: 650px) {
+        & [data-gatsby-image-wrapper] {
+            width: 100%;
+            height: 400px;
+        }
+    }
+`;
 
 const urlFor = (source) =>
     urlBuilder({ projectId: 'j56plrtm', dataset: 'production' }).image(source);
@@ -48,16 +77,24 @@ export default function SanityPost({ data }) {
     const post = data.sanityPost;
     return (
         <Layout title={post.title} description={post.description}>
-            <GatsbyImage
-                image={post.mainImage.asset.gatsbyImageData}
-                alt={post.mainImage.alternativeText}
-            />
-            <PortableText blocks={post.mainImage._rawAttribution} />
-            <h1>{post.title}</h1>
-            <p>
-                (posted: {post.publishedAt}) - {post.description}
-            </p>
-            <PortableText blocks={post?._rawBody} serializers={serializer} />
+            <ContentWrapper>
+                <Title>{post.title}</Title>
+                <ImageWrapper>
+                    <GatsbyImage
+                        image={post.mainImage.asset.gatsbyImageData}
+                        alt={post.mainImage.alternativeText}
+                    />
+                </ImageWrapper>
+                <PortableText blocks={post.mainImage._rawAttribution} />
+
+                <p>
+                    (posted: {post.publishedAt}) - {post.description}
+                </p>
+                <PortableText
+                    blocks={post?._rawBody}
+                    serializers={serializer}
+                />
+            </ContentWrapper>
         </Layout>
     );
 }
