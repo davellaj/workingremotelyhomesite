@@ -80,5 +80,34 @@ module.exports = {
                 },
             },
         },
+        // added to enable PWA, manifest must be listed before offline so it can be cached
+        // icons property was added to address lighthouse recommendation for android maskable icons
+        {
+            resolve: `gatsby-plugin-manifest`,
+            options: {
+                name: `Working Remotely Home`,
+                short_name: `workingRemotelyHome`,
+                start_url: `/`,
+                background_color: `#f7f0eb`,
+                theme_color: `#a2466c`,
+                display: `standalone`,
+                icon: `src/images/icon.png`,
+                icons: [
+                    {
+                        src: 'src/images/icon.png',
+                        sizes: '196x196',
+                        type: 'image/png',
+                        purpose: 'any maskable',
+                    },
+                    {
+                        src: `src/images/icon.png`,
+                        sizes: `512x512`,
+                        type: `image/png`,
+                        purpose: 'any maskable',
+                    },
+                ],
+            },
+        },
+        'gatsby-plugin-offline',
     ],
 };
