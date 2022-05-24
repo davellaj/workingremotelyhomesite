@@ -3,7 +3,7 @@ module.exports = {
         title: `Working Remotely Home`,
         siteUrl: `https://workingremotelyhome.com`,
         description: `Blog about working remotely`,
-        image: `./src/images/icon.png`,
+        image: `./src/images/favicon-512.png`,
     },
     plugins: [
         {
@@ -26,7 +26,7 @@ module.exports = {
         {
             resolve: 'gatsby-plugin-manifest',
             options: {
-                icon: 'src/images/icon.png',
+                icon: 'src/images/favicon-196.png',
             },
         },
         'gatsby-plugin-sharp',
@@ -88,19 +88,19 @@ module.exports = {
                 name: `Working Remotely Home`,
                 short_name: `workingRemotelyHome`,
                 start_url: `/`,
-                background_color: `#f7f0eb`,
-                theme_color: `#a2466c`,
+                background_color: `#E2ded0`,
+                theme_color: `#4E4F50`,
                 display: `standalone`,
-                icon: `src/images/icon.png`,
+                icon: `src/images/favicon-512.png`,
                 icons: [
                     {
-                        src: 'src/images/icon.png',
+                        src: 'src/images/favicon-196.png',
                         sizes: '196x196',
                         type: 'image/png',
                         purpose: 'any maskable',
                     },
                     {
-                        src: `src/images/icon.png`,
+                        src: `src/images/favicon-512.png`,
                         sizes: `512x512`,
                         type: `image/png`,
                         purpose: 'any maskable',

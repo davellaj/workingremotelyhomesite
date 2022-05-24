@@ -7,12 +7,20 @@ import Card from '../components/Card';
 const CardLayoutWrapper = styled.div`
     & div:first-of-type {
         flex-basis: 100%;
+
+        & figcaption {
+            font-size: 16px;
+        }
     }
 
     @media (min-width: 650px) {
         display: flex;
         flex-flow: wrap;
         gap: 2%;
+
+        & div:first-of-type figcaption {
+            font-size: 24px;
+        }
     }
 `;
 

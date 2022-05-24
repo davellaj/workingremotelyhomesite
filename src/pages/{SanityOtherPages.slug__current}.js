@@ -7,10 +7,6 @@ import styled from '@emotion/styled';
 const ContentWrapper = styled.article`
     max-width: 1200px;
     margin: 0 auto;
-
-    & a {
-        text-decoration: none;
-    }
 `;
 export const query = graphql`
     query SanityOtherPages($id: String!) {

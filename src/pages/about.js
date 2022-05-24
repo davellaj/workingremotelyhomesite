@@ -5,7 +5,7 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 export const query = graphql`
     query IconQuery {
-        file(name: { eq: "icon" }) {
+        file(name: { eq: "favicon-512" }) {
             childImageSharp {
                 gatsbyImageData(placeholder: DOMINANT_COLOR)
             }
@@ -19,7 +19,10 @@ const AboutPage = ({ data }) => {
             title="about this page"
             description="More information about this site"
         >
-            <GatsbyImage image={getImage(data.file)} alt="gatsby icon" />
+            <GatsbyImage
+                image={getImage(data.file)}
+                alt="laptop outline favicon"
+            />
             <h1>about page</h1>
             <Link to="/">Back to home</Link>
         </Layout>

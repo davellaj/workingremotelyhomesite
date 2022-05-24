@@ -4,8 +4,8 @@ import styled from '@emotion/styled';
 import { GatsbyImage } from 'gatsby-plugin-image';
 
 const CardWrapper = styled.div`
-    border: 1px solid var(--black);
-    color: var(--black);
+    border: 1px solid var(--cool-gray);
+    color: var(--cool-gray);
     padding: 0;
     margin: 20px 0;
     display: flex;
@@ -43,9 +43,10 @@ const CardFigCaption = styled.figcaption`
     display: flex;
     align-items: center;
     padding: 1rem;
-    color: white;
-    height: 150px;
+    color: var(--white);
+    min-height: 150px;
     font-size: 0.7rem;
+    text-overflow; 
 `;
 
 const StyledLink = styled(Link)`
@@ -53,7 +54,7 @@ const StyledLink = styled(Link)`
 
     & :hover,
     :focus {
-        color: black;
+        color: var(--cool-gray);
     }
 `;
 

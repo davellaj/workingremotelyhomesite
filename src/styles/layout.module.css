@@ -1,6 +1,6 @@
 .header-wrapper {
-    background: var(--black);
-    color: var(--white);
+    background: var(--cool-gray);
+    color: var(--ivory);
     padding: 1rem;
 }
 
@@ -13,8 +13,7 @@
 
 .header a:focus,
 .header a:hover {
-    background: var(--white);
-    color: var(--black);
+    font-weight: 600;
 }
 
 nav ul {
@@ -68,12 +67,11 @@ nav a {
 
 .footer a:focus,
 .footer a:hover {
-    background: var(--white);
-    color: var(--black);
+    font-weight: 600;
 }
 
 .footerWrapper {
-    background: var(--black);
-    color: var(--white);
+    background: var(--cool-gray);
+    color: var(--ivory);
     padding: 3rem;
 }

@@ -67,7 +67,10 @@ export const query = graphql`
                     gatsbyImageData
                 }
             }
-            publishedAt(fromNow: true)
+            author {
+                name
+            }
+            publishedAt(formatString: "DD MMMM, YYYY")
             gatsbyPath(filePath: "/{SanityPost.slug__current}")
             _rawBody
         }
@@ -89,13 +92,12 @@ export default function SanityPost({ data }) {
                 </ImageWrapper>
                 <PortableText blocks={post.mainImage._rawAttribution} />
 
-                <p>
-                    (posted: {post.publishedAt}) - {post.description}
-                </p>
+                <p>Written by {post.author.name}</p>
                 <PortableText
                     blocks={post?._rawBody}
                     serializers={serializer}
                 />
+                <p>posted on: {post.publishedAt}</p>
             </ContentWrapper>
         </Layout>
     );
