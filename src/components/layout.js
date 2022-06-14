@@ -53,6 +53,22 @@ const Layout = ({
                     <Link to="/terms-and-conditions">Terms and Conditions</Link>
                     <Link to="/privacy-policy">Privacy Policy</Link>
                     <br />
+                    <p>
+                        DISCLAIMER: BLOG POST AUTHORS ASSUME NO RESPONSIBILITY
+                        OR LIABILITY FOR ANY ERRORS OR OMISSIONS IN THE CONTENT
+                        OF THIS SITE. THE INFORMATION CONTAINED IN THIS SITE IS
+                        PROVIDED ON AN “AS IS'' BASIS WITH NO GUARANTEES OF
+                        COMPLETENESS, ACCURACY, USEFULNESS, OR TIMELINESS. THE
+                        CONTENT IS FOR INFORMATIONAL PURPOSES ONLY. PLEASE REFER
+                        TO OUR COMPLETE TERMS OF USE{' '}
+                        <Link
+                            to="/terms-and-conditions"
+                            style={{ padding: 0, margin: 0 }}
+                        >
+                            HERE
+                        </Link>
+                        .
+                    </p>
                     <small>
                         © 2022 Working Remotely Home. All Rights Reserved.
                     </small>
