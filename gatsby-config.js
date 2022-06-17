@@ -17,7 +17,7 @@ module.exports = {
         {
             resolve: 'gatsby-plugin-google-analytics',
             options: {
-                trackingId: 'G-XRLZ43DEWY',
+                trackingId: 'UA-227124513-1',
             },
         },
         // gatsby-plugin-google-analytics was not working with google analytics.
@@ -27,18 +27,19 @@ module.exports = {
             options: {
                 // You can add multiple tracking ids and a pageview event will be fired for all of them.
                 trackingIds: [
-                    'G-XRLZ43DEWY', // Google Analytics / GA
+                    'G-4810D4EB0G', // Google Analytics / GA
+                    'UA-227124513-1', // Google Analytics / Universal will expire
                     // optional
                     // 'OPTIONAL----AW-CONVERSION_ID', // Google Ads / Adwords / AW
                     // 'OPTIONAL----DC-FLOODIGHT_ID', // Marketing Platform advertising products (Display & Video 360, Search Ads 360, and Campaign Manager)
                 ],
                 // This object gets passed directly to the gtag config command
                 // This config will be shared across all trackingIds
-                gtagConfig: {
-                    optimize_id: 'OPT-TZD7FNK',
-                    anonymize_ip: true,
-                    cookie_expires: 0,
-                },
+                // gtagConfig: {
+                //     optimize_id: '',
+                //     anonymize_ip: true,
+                //     cookie_expires: 0,
+                // },
                 // This object is used for configuration specific to this plugin
                 pluginConfig: {
                     // Puts tracking script in the head instead of the body
